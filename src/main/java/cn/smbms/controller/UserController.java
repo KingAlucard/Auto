@@ -38,21 +38,21 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/dologin.html",method = RequestMethod.POST)
-    public String doLogin(String userCode, String userPassword,
-                          HttpSession session, HttpServletRequest request){
-            logger.debug("dologin===========================");
-        User user = userService.login(userCode,userPassword);
-            if(user != null){
-                //页面跳转（frame.jsp）
-                session.setAttribute(Constants.USER_SESSION,user);
-                return "redirect:/user/main.html";
-                //response.senRedirect(jsp/frame.jsp)
-            }else {
-                request.setAttribute("error","用户名和密码错误");
-                return "login";
-        }
-    }
+//    @RequestMapping(value = "/dologin.html",method = RequestMethod.POST)
+//    public String doLogin(String userCode, String userPassword,
+//                          HttpSession session, HttpServletRequest request){
+//            logger.debug("dologin===========================");
+//        User user = userService.login(userCode,userPassword);
+//            if(user != null){
+//                //页面跳转（frame.jsp）
+//                session.setAttribute(Constants.USER_SESSION,user);
+//                return "redirect:/user/main.html";
+//                //response.senRedirect(jsp/frame.jsp)
+//            }else {
+//                request.setAttribute("error","用户名和密码错误");
+//                return "login";
+//        }
+//    }
 
     @RequestMapping("/main.html")
     public String main(HttpSession session){
